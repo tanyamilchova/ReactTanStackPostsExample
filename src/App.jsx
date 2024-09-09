@@ -1,13 +1,25 @@
 import { useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
+
+import { getPost } from "../api/posts"
 import PostsList1 from "./PostsList1"
 import PostsList2 from "./PostsList2"
+import Post from "./Post"
+
 
 
 
 export default function App() {
  const[currentPage, setCurrentPage] = useState(<PostsList1 />)
  const queryClient = useQueryClient()
+
+ function onHoverPostOneLink() {
+  queryClient.prefetchQuery({
+    queryKey: ["posts", 1],
+    queryFn: () => getPost(1),
+  })
+}
+
  return (
   <div>
    <button onClick={() => setCurrentPage(<PostsList1 />)}>

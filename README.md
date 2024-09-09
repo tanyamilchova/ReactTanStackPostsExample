@@ -1,8 +1,12 @@
-# React + Vite
+# TanStack Query Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates the use of the **TanStack Query** library with React, incorporating features such as **pagination**, **infinite scroll**, and basic **CRUD** operations. It uses `db.json` as the backend data source, serving data through `json-server`.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **PostList1 & PostList2 Components**: Display lists of posts fetched from the API with pagination and infinite scroll examples.
+- **Post Component**: Displays individual post details.
+- **CreatePost Component**: Allows users to create new posts.
+- **TanStack Query Integration**: Efficient data fetching, caching, and background synchronization.
+- **Pagination Example**: Displays paginated posts from the backend.
+- **Infinite Scroll Example**: Automatically loads more posts as the user scrolls.

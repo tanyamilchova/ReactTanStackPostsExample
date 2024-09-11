@@ -7,7 +7,7 @@ export default function PostsList1() {
       queryKey: ["posts"],
       queryFn: getPosts,
       placeholderData: [{ id: 1, title: "Initial Data" }],
-      refetchInterval: 1000,
+      refetchInterval: 10000,
     })
   
     if (postsQuery.status === "loading") return <h1>Loading...</h1>

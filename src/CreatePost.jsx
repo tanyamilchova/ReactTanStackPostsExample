@@ -4,17 +4,33 @@ import { createPost } from "../api/posts";
 import Post from "./Post";
 
 export function CreatePost({ setCurrentPage }) {
-  const titleRef = useRef()
-  const bodyRef = useRef()
-  const queryClient = useQueryClient()
+  const titleRef = useRef();
+  const bodyRef = useRef();
+  const queryClient = useQueryClient();
+
   const createPostMutation = useMutation({
     mutationFn: createPost,
     onSuccess: data => {
-      queryClient.setQueryData(["posts", data.id], data)
+     queryClient.setQueryData(["posts", data.id], data)
       queryClient.invalidateQueries(["posts"], { exact: true })
       setCurrentPage(<Post id={data.id} />)
     },
-  })
+  });
+  
+  // const createPostMutation = useMutation({
+  //   mutationFn: createPost,
+  //   onSuccess: data => {
+  //     // Log the response data
+  //     console.log("Post creation successful, data received:", data);
+  
+  //     // Set query data and invalidate cache
+  //     queryClient.setQueryData(["posts", data.id], data);
+  //     queryClient.invalidateQueries(["posts"], { exact: true });
+  
+  //     // Navigate to the newly created post
+  //     setCurrentPage(<Post id={data.id} />);
+  //   },
+  // });
 
   function handleSubmit(e) {
     e.preventDefault()

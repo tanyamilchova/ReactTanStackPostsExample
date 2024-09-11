@@ -6,8 +6,9 @@ export default function PostsList2() {
 
     const postQuery=useQuery({
         queryKey:["posts"],
-             queryFn: getPosts,
-            })
+        queryFn: getPosts,
+        refetchInterval: 10000,
+    })
     
     if(postQuery.status==="loading"){
         return <h1>Loading ...</h1>
